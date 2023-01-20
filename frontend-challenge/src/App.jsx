@@ -1,37 +1,18 @@
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import RegisterForm from "./components/Form";
+import Valores from "./components/Valores";
+import { GlobalStyle } from "./styles/global";
 
 function App() {
+  const [valores, setvalores] = useState([]);
+
   return (
     <div className="App">
-      <div>
-        <h1>Simule sua Antecipação</h1>
-        <form action="">
-          <p>Informe o valor da venda *</p>
-          <input type="number" name="" id="" />
-          <p>Em quantas parcelas *</p>
-          <input type="number" name="" id="" />
-          <p>Informe o percentual de MDR *</p>
-          <input type="number" name="" id="" />
-        </form>
-      </div>
-      <div className='resposta'>
-        <h3>VOCÊ RECEBERÁ:</h3> 
-        <div className='valor'>
-          <p>Amanhã:</p> 
-          <p>R$ 0,00</p>
-        </div>
-        <div className='valor'>
-          <p>Em 15 dias:</p> 
-          <p>R$ 0,00</p>
-        </div>
-        <div className='valor'>
-          <p>Em 30 dias:</p> 
-          <p>R$ 0,00</p>
-        </div>
-        <div className='valor'>
-          <p>Em 90 dias:</p> 
-          <p>R$ 0,00</p>
-        </div>
+      <GlobalStyle />
+      <div className="container">
+        <RegisterForm valores={valores} setvalores={setvalores} />
+        <Valores valores={valores} />
       </div>
     </div>
   );
